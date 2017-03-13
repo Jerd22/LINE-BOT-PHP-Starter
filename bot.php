@@ -17,9 +17,17 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
+			if($text=='สวัสดีค่ะ' || $text=='สวัสดีครับ' || $text=='สวัสดี'){
+			    $ReText = 'สวัสดี!! ผมคือ BOT';
+			}else if($text=='วันนี้สบายดีไหม'){
+				$ReText = 'สบายดี!!! แล้วไม่ทำงานหรา';
+			}else{
+				$ReText = 'ไม่รู้จะตอบอะไร';
+			}
+			
 			$messages = [
 				'type' => 'text',
-				'text' => 'สวัสดี!! ผมคือ BOT'
+				'text' => $ReText
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
